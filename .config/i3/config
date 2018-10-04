@@ -163,8 +163,8 @@ exec --no-startup-id xrandr --output eDP-1  --mode 2560x1440 --pos 200x1080 --ou
 # quick switch monitor setuip (Win+Ctrl+)
 ## 1: Only Laptop Display
 bindsym $mod+Control+1 exec --no-startup-id xrandr --output eDP-1 --primary --mode 2560x1440 --rotate normal --output DP-2-1 --off --output DP-2-2 --off
-## 2: Laptop + 2 external DP Low-Res
-bindsym $mod+Control+2 exec --no-startup-id  xrandr --output eDP-1  --mode 2560x1440 --pos 200x1080 --output DP-2-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-2-2 --mode 1920x1080 --pos 1920x0 --rotate normal
+## 2: Laptop + 2 external DP High-Res
+bindsym $mod+Control+2 exec --no-startup-id  xrandr --output eDP-1  --mode 2560x1440 --pos 200x1440 --output DP-2-1 --primary --mode 2560x1440_30.00 --pos 0x0 --rotate normal --output DP-2-2 --mode 2560x1440_30.00 --pos 2560x0 --rotate normal
 ## 3: Laptop + 1 external DP High-Res
 bindsym $mod+Control+3 exec --no-startup-id xrandr --output eDP-1 --mode 2560x1440 --pos 200x1440 --output DP-2-1 --primary --mode 2560x1440 --output DP-2-2 --off
 ## 4: (Only 2 external DP Low-Res)
@@ -196,7 +196,7 @@ assign [class="Chromium-browser"] 2:web
 assign [class="Slack"] 1:chat
 assign [class="Remmina"] 3:remote
 assign [class="Vpnui"] 3:remote
-assign [class="Emacs"] 4:code
+#assign [class="Emacs"] 4:code
 assign [class="Gtimelog"] 5:time
 assign [class="Docnav"] 6:doc
 assign [class="Vivado 2018.1"] 7:vivado
