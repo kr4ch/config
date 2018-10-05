@@ -1,3 +1,5 @@
+(setq inhibit-startup-screen t)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -123,7 +125,7 @@ begin<cursor>
   end if;
 end process <label>;" "e" "seqproc"))))
  '(vhdl-source-file-menu t)
- '(vhdl-speedbar-auto-open t))
+;; '(vhdl-speedbar-auto-open t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -220,3 +222,5 @@ end process <label>;" "e" "seqproc"))))
 
 ;; Multiple-Cursors:
 (global-set-key (kbd "C-c m c") 'mc/edit-lines)
+
+

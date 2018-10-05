@@ -13,11 +13,11 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8
+#font pango:monospace 8
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
+font pango:DejaVu Sans Mono 8
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -172,6 +172,15 @@ bindsym $mod+Control+4 exec --no-startup-id  xrandr --output eDP-1  --off --outp
 
 
 
+# Urgency hint draws window border red
+client.urgent #2f343a #900000 #ffffff #900000
+
+bar {
+        colors {
+                urgent_workspace   #2f343a #900000 #ffffff
+        }
+}
+
 # Network Manager Applet
 exec --no-startup-id nm-applet
 
@@ -196,11 +205,12 @@ assign [class="Chromium-browser"] 2:web
 assign [class="Slack"] 1:chat
 assign [class="Remmina"] 3:remote
 assign [class="Vpnui"] 3:remote
+assign [class="x2goclient"] 3:remote
 #assign [class="Emacs"] 4:code
 assign [class="Gtimelog"] 5:time
 assign [class="Docnav"] 6:doc
 assign [class="Vivado 2018.1"] 7:vivado
-
+assign [class="Spotify"] 8:spotify
 
 
 
