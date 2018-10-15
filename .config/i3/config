@@ -156,20 +156,38 @@ bar {
         tray_output primary
 }
 
+
+
+## Monitor configurations
+# Either mobile (laptop screen only: eDP-1) or desktop (laptop screen + 2 x DP-2-{1,2}: $monitor-config
 # Set up position of DP1 and LVDS1
+exec --no-startup-id xrandr --newmode "2560x1440_30.00"  146.27  2560 2680 2944 3328  1440 1441 1444 1465  -HSync +Vsync
+exec --no-startup-id xrandr --addmode DP-2-1 "2560x1440_30.00"
+exec --no-startup-id xrandr --addmode DP-2-2 "2560x1440_30.00"
 #exec --no-startup-id xrandr --output eDP-1 --mode 2560x1440 --pos 800x1200 --rotate normal --output DP-2-1 --primary --mode 1920x1200 --pos 0x0 --rotate normal --output DP-2-2 --mode 1920x1200 --pos 1920x0 --rotate normal
-exec --no-startup-id xrandr --output eDP-1  --mode 2560x1440 --pos 200x1080 --output DP-2-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-2-2 --mode 1920x1080 --pos 1920x0 --rotate normal
+exec --no-startup-id xrandr --output eDP-1  --mode 2560x1440 --pos 200x1440 --output DP-2-1 --primary --mode 2560x1440_30.00 --pos 0x0 --rotate normal --output DP-2-2 --mode 2560x1440_30.00 --pos 2560x0 --rotate normal
 
 # quick switch monitor setuip (Win+Ctrl+)
-## 1: Only Laptop Display
+## 1: Only Laptop Displayd
 bindsym $mod+Control+1 exec --no-startup-id xrandr --output eDP-1 --primary --mode 2560x1440 --rotate normal --output DP-2-1 --off --output DP-2-2 --off
 ## 2: Laptop + 2 external DP High-Res
-bindsym $mod+Control+2 exec --no-startup-id  xrandr --output eDP-1  --mode 2560x1440 --pos 200x1440 --output DP-2-1 --primary --mode 2560x1440_30.00 --pos 0x0 --rotate normal --output DP-2-2 --mode 2560x1440_30.00 --pos 2560x0 --rotate normal
+bindsym $mod+Control+2 exec --no-startup-id xrandr --output eDP-1  --mode 2560x1440 --pos 200x1440 --output DP-2-1 --primary --mode 2560x1440_30.00 --pos 0x0 --rotate normal --output DP-2-2 --mode 2560x1440_30.00 --pos 2560x0 --rotate normal
 ## 3: Laptop + 1 external DP High-Res
 bindsym $mod+Control+3 exec --no-startup-id xrandr --output eDP-1 --mode 2560x1440 --pos 200x1440 --output DP-2-1 --primary --mode 2560x1440 --output DP-2-2 --off
 ## 4: (Only 2 external DP Low-Res)
 bindsym $mod+Control+4 exec --no-startup-id  xrandr --output eDP-1  --off --output DP-2-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-2-2 --mode 1920x1080 --pos 1920x0 --rotate normal
 
+
+
+
+# Scratchpad
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# Show the first scratchpad window
+bindsym $mod+minus scratchpad show
+
+bindsym $mod+x sticky toggle
 
 
 # Urgency hint draws window border red
@@ -180,6 +198,10 @@ bar {
                 urgent_workspace   #2f343a #900000 #ffffff
         }
 }
+
+# Show help (shortcuts)
+for_window [title="^floatme$"] floating enable
+bindsym $mod+p exec --no-startup-id feh ~/Pictures/i3_shortcuts.png -^ floatme
 
 # Network Manager Applet
 exec --no-startup-id nm-applet
@@ -200,18 +222,30 @@ bindsym $mod+Control+l move workspace to output right
 # Rename workspace
 bindsym $mod+Control+r exec i3-input -F 'rename workspace to %s' -P 'New name: '
 
+
+# Assign workspaces to screens
+workspace "1:chat" output eDP-1
+workspace "2:web" output DP-2-1
+workspace "3:remote" output DP-2-2
+workspace "4:code" output DP-2-1
+workspace "5:vivado" output DP-2-2
+workspace "6:doc" output DP-2-1
+workspace "7:time" output eDP-1
+workspace "8:instr" output DP-2-1
+workspace "9:spotify" output eDP-1
+
+
 # Assign classes to workspaces
 assign [class="Chromium-browser"] 2:web
 assign [class="Slack"] 1:chat
 assign [class="Remmina"] 3:remote
 assign [class="Vpnui"] 3:remote
 assign [class="x2goclient"] 3:remote
-#assign [class="Emacs"] 4:code
-assign [class="Gtimelog"] 5:time
+assign [class="Emacs"] 4:code
+assign [class="Gtimelog"] 7:time
 assign [class="Docnav"] 6:doc
-assign [class="Vivado 2018.1"] 7:vivado
-assign [class="Spotify"] 8:spotify
-
+assign [class="Vivado 2018.1"] "5:vivado"
+assign [class="Spotify"] 9:spotify
 
 
 
@@ -233,3 +267,12 @@ mode "$mode_system" {
 }
 
 bindsym $mod+End mode "$mode_system"
+
+
+
+
+# Autostart applications
+exec --no-startup-id chromium-browser
+exec --no-startup-id gtimelog
+exec --no-startup-id slack
+exec --no-startup-id x2goclient
