@@ -176,7 +176,8 @@ bindsym $mod+Control+2 exec --no-startup-id xrandr --output eDP-1  --mode 2560x1
 bindsym $mod+Control+3 exec --no-startup-id xrandr --output eDP-1 --mode 2560x1440 --pos 200x1440 --output DP-2-1 --primary --mode 2560x1440 --output DP-2-2 --off
 ## 4: (Only 2 external DP Low-Res)
 bindsym $mod+Control+4 exec --no-startup-id  xrandr --output eDP-1  --off --output DP-2-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-2-2 --mode 1920x1080 --pos 1920x0 --rotate normal
-
+## 9: Mirror Laptop to HDMI1 @1080p (presentation)
+bindsym $mod+Control+9 exec --no-startup-id xrandr --output eDP-1 --mode 1920x1080 --output HDMI-2 --mode 1920x1080 --same-as eDP-1
 
 
 
@@ -192,12 +193,6 @@ bindsym $mod+x sticky toggle
 
 # Urgency hint draws window border red
 client.urgent #2f343a #900000 #ffffff #900000
-
-bar {
-        colors {
-                urgent_workspace   #2f343a #900000 #ffffff
-        }
-}
 
 # Show help (shortcuts)
 for_window [title="^floatme$"] floating enable
@@ -236,15 +231,18 @@ workspace "9:spotify" output eDP-1
 
 
 # Assign classes to workspaces
+assign [class="Thunderbird"] 10:mail
 assign [class="Chromium-browser"] 2:web
 assign [class="Slack"] 1:chat
 assign [class="Remmina"] 3:remote
 assign [class="Vpnui"] 3:remote
 assign [class="x2goclient"] 3:remote
+assign [class="X2GoAgent"] 3:remote
 assign [class="Emacs"] 4:code
 assign [class="Gtimelog"] 7:time
 assign [class="Docnav"] 6:doc
-assign [class="Vivado 2018.1"] "5:vivado"
+assign [class="Vivado 2018.1"] 5:vivado
+assign [class="Vivado"] 5:vivado
 assign [class="Spotify"] 9:spotify
 
 
@@ -276,3 +274,5 @@ exec --no-startup-id chromium-browser
 exec --no-startup-id gtimelog
 exec --no-startup-id slack
 exec --no-startup-id x2goclient
+exec --no-startup-id thunderbird
+exec --no-startup-id pasystray
