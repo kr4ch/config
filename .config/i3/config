@@ -174,8 +174,8 @@ bindsym $mod+Control+1 exec --no-startup-id xrandr --output eDP-1 --primary --mo
 bindsym $mod+Control+2 exec --no-startup-id xrandr --output eDP-1  --mode 2560x1440 --pos 200x1440 --output DP-2-1 --primary --mode 2560x1440_30.00 --pos 0x0 --rotate normal --output DP-2-2 --mode 2560x1440_30.00 --pos 2560x0 --rotate normal
 ## 3: Laptop + 1 external DP High-Res
 bindsym $mod+Control+3 exec --no-startup-id xrandr --output eDP-1 --mode 2560x1440 --pos 200x1440 --output DP-2-1 --primary --mode 2560x1440 --output DP-2-2 --off
-## 4: (Only 2 external DP Low-Res)
-bindsym $mod+Control+4 exec --no-startup-id  xrandr --output eDP-1  --off --output DP-2-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-2-2 --mode 1920x1080 --pos 1920x0 --rotate normal
+## 4: (Only 2 external DP High-Res)
+bindsym $mod+Control+4 exec --no-startup-id  xrandr --output eDP-1  --off --output DP-2-1 --primary --mode 2560x1440_30.00 --pos 0x0 --rotate normal --output DP-2-2 --mode 2560x1440_30.00 --pos 2560x0 --rotate normal
 ## 9: Mirror Laptop to HDMI1 @1080p (presentation)
 bindsym $mod+Control+9 exec --no-startup-id xrandr --output eDP-1 --mode 1920x1080 --output HDMI-2 --mode 1920x1080 --same-as eDP-1
 
@@ -228,6 +228,7 @@ workspace "6:doc" output DP-2-1
 workspace "7:time" output eDP-1
 workspace "8:instr" output DP-2-1
 workspace "9:spotify" output eDP-1
+workspace "10:mail" output eDP-2-2
 
 
 # Assign classes to workspaces
@@ -276,3 +277,4 @@ exec --no-startup-id slack
 exec --no-startup-id x2goclient
 exec --no-startup-id thunderbird
 exec --no-startup-id pasystray
+exec --no-startup-id emacs
