@@ -172,10 +172,12 @@ exec --no-startup-id xrandr --output eDP-1  --mode 2560x1440 --pos 200x1440 --ou
 bindsym $mod+Control+1 exec --no-startup-id xrandr --output eDP-1 --primary --mode 2560x1440 --rotate normal --output DP-2-1 --off --output DP-2-2 --off
 ## 2: Laptop + 2 external DP High-Res
 bindsym $mod+Control+2 exec --no-startup-id xrandr --output eDP-1  --mode 2560x1440 --pos 200x1440 --output DP-2-1 --primary --mode 2560x1440_30.00 --pos 0x0 --rotate normal --output DP-2-2 --mode 2560x1440_30.00 --pos 2560x0 --rotate normal
-## 3: Laptop + 1 external DP High-Res
-bindsym $mod+Control+3 exec --no-startup-id xrandr --output eDP-1 --mode 2560x1440 --pos 200x1440 --output DP-2-1 --primary --mode 2560x1440 --output DP-2-2 --off
+## 3: Laptop + 1 external DP UltraWide
+bindsym $mod+Control+3 exec --no-startup-id xrandr --output DP-2-2 --mode 3840x1600 --output eDP-1 --primary --mode 2560x1440 --pos 3840x160 --output DP-2-1 --off
 ## 4: (Only 2 external DP High-Res)
 bindsym $mod+Control+4 exec --no-startup-id  xrandr --output eDP-1  --off --output DP-2-1 --primary --mode 2560x1440_30.00 --pos 0x0 --rotate normal --output DP-2-2 --mode 2560x1440_30.00 --pos 2560x0 --rotate normal
+## 5: Only 1 external DP Ultrawide
+bindsym $mod+Control+5 exec --no-startup-id xrandr --output eDP-1 --off --output DP-2-2 --primary --mode 3840x1600 --primary
 ## 9: Mirror Laptop to HDMI1 @1080p (presentation)
 bindsym $mod+Control+9 exec --no-startup-id xrandr --output eDP-1 --mode 1920x1080 --output HDMI-2 --mode 1920x1080 --same-as eDP-1
 
@@ -214,37 +216,43 @@ bindsym $mod+Control+j move workspace to output down
 bindsym $mod+Control+k move workspace to output up
 bindsym $mod+Control+l move workspace to output right
 
+# move current workspace to monitor left (shift through monitors)
+bindsym $mod+m move workspace to output left
+
+
 # Rename workspace
 bindsym $mod+Control+r exec i3-input -F 'rename workspace to %s' -P 'New name: '
 
 
-# Assign workspaces to screens
+# Assign workspaces to screens (if screen is unavailable, it will default to the first screen)
 workspace "1:chat" output eDP-1
 workspace "2:web" output DP-2-1
-workspace "3:remote" output DP-2-2
-workspace "4:code" output DP-2-1
-workspace "5:vivado" output DP-2-2
-workspace "6:doc" output DP-2-1
+workspace "3:instr" output DP-2-1
+workspace "4:hdl" output DP-2-1
+workspace "5:fw" output DP-2-1
+workspace "6:docs" output DP-2-1
 workspace "7:time" output eDP-1
-workspace "8:instr" output DP-2-1
-workspace "9:spotify" output eDP-1
-workspace "10:mail" output eDP-2-2
+workspace "10:mail" output eDP-2-1
 
+workspace "8:vivado" output DP-2-2
+workspace "9:remote" output DP-2-2
 
 # Assign classes to workspaces
 assign [class="Thunderbird"] 10:mail
 assign [class="Chromium-browser"] 2:web
 assign [class="Slack"] 1:chat
-assign [class="Remmina"] 3:remote
-assign [class="Vpnui"] 3:remote
-assign [class="x2goclient"] 3:remote
-assign [class="X2GoAgent"] 3:remote
-assign [class="Emacs"] 4:code
+assign [class="Remmina"] 9:remote
+assign [class="Vpnui"] 9:remote
+assign [class="x2goclient"] 9:remote
+assign [class="X2GoAgent"] 9:remote
+assign [class="Emacs"] 4:hdl
+assign [class="sublime_text"] 5:fw
+assign [class="Sublime_text"] 5:fw
 assign [class="Gtimelog"] 7:time
 assign [class="Docnav"] 6:doc
-assign [class="Vivado 2018.1"] 5:vivado
-assign [class="Vivado"] 5:vivado
-assign [class="Spotify"] 9:spotify
+assign [class="Vivado 2018.1"] 8:vivado
+assign [class="Vivado"] 8:vivado
+assign [class="Spotify"] 1:chat
 
 
 
@@ -278,3 +286,6 @@ exec --no-startup-id x2goclient
 exec --no-startup-id thunderbird
 exec --no-startup-id pasystray
 exec --no-startup-id emacs
+exec --no-startup-id emacs
+exec --no-startup-id i3-msg 'workspace 3:instr; exec i3-sensible-terminal'
+exec --no-startup-id subl
