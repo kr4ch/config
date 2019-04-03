@@ -173,7 +173,7 @@ bindsym $mod+Control+1 exec --no-startup-id xrandr --output eDP-1 --primary --mo
 ## 2: Laptop + 2 external DP High-Res
 bindsym $mod+Control+2 exec --no-startup-id xrandr --output eDP-1  --mode 2560x1440 --pos 200x1440 --output DP-2-1 --primary --mode 2560x1440_30.00 --pos 0x0 --rotate normal --output DP-2-2 --mode 2560x1440_30.00 --pos 2560x0 --rotate normal
 ## 3: Laptop + 1 external DP UltraWide
-bindsym $mod+Control+3 exec --no-startup-id xrandr --output DP-2-2 --mode 3840x1600 --output eDP-1 --primary --mode 2560x1440 --pos 3840x160 --output DP-2-1 --off
+bindsym $mod+Control+3 exec --no-startup-id xrandr --output DP-2-2 --mode 3840x1600 --primary --output eDP-1 --mode 2560x1440 --pos 3840x160 --output DP-2-1 --off
 ## 4: (Only 2 external DP High-Res)
 bindsym $mod+Control+4 exec --no-startup-id  xrandr --output eDP-1  --off --output DP-2-1 --primary --mode 2560x1440_30.00 --pos 0x0 --rotate normal --output DP-2-2 --mode 2560x1440_30.00 --pos 2560x0 --rotate normal
 ## 5: Only 1 external DP Ultrawide
@@ -226,13 +226,14 @@ bindsym $mod+Control+r exec i3-input -F 'rename workspace to %s' -P 'New name: '
 
 # Assign workspaces to screens (if screen is unavailable, it will default to the first screen)
 workspace "1:chat" output eDP-1
-workspace "2:web" output DP-2-1
-workspace "3:instr" output DP-2-1
-workspace "4:hdl" output DP-2-1
-workspace "5:fw" output DP-2-1
-workspace "6:docs" output DP-2-1
 workspace "7:time" output eDP-1
-workspace "10:mail" output eDP-2-1
+
+workspace "2:web" output DP-2-2
+workspace "3:instr" output DP-2-2
+workspace "4:hdl" output DP-2-2
+workspace "5:fw" output DP-2-2
+workspace "6:docs" output DP-2-2
+workspace "10:mail" output DP-2-2
 
 workspace "8:vivado" output DP-2-2
 workspace "9:remote" output DP-2-2
@@ -250,8 +251,8 @@ assign [class="sublime_text"] 5:fw
 assign [class="Sublime_text"] 5:fw
 assign [class="Gtimelog"] 7:time
 assign [class="Docnav"] 6:doc
-assign [class="Vivado 2018.1"] 8:vivado
-assign [class="Vivado"] 8:vivado
+#assign [class="Vivado 2018.1"] 3:inst
+#assign [class="Vivado"] 3:instr
 assign [class="Spotify"] 1:chat
 
 
