@@ -154,6 +154,9 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
         tray_output primary
+
+	# Right-Click on i3bar to launch htop in terminal (resolution dependant :(
+	bindsym button3 exec --no-startup-id terminator -e htop; exec "bash -c 'sleep 0.2s;i3-msg floating enable;i3-msg resize set 800px 400px;i3-msg move position 3040px 1180px'"
 }
 
 
