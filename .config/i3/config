@@ -164,11 +164,12 @@ bar {
 ## Monitor configurations
 # Either mobile (laptop screen only: eDP-1) or desktop (laptop screen + 2 x DP-2-{1,2}: $monitor-config
 # Set up position of DP1 and LVDS1
-exec --no-startup-id xrandr --newmode "2560x1440_30.00"  146.27  2560 2680 2944 3328  1440 1441 1444 1465  -HSync +Vsync
-exec --no-startup-id xrandr --addmode DP-2-1 "2560x1440_30.00"
-exec --no-startup-id xrandr --addmode DP-2-2 "2560x1440_30.00"
-#exec --no-startup-id xrandr --output eDP-1 --mode 2560x1440 --pos 800x1200 --rotate normal --output DP-2-1 --primary --mode 1920x1200 --pos 0x0 --rotate normal --output DP-2-2 --mode 1920x1200 --pos 1920x0 --rotate normal
-exec --no-startup-id xrandr --output eDP-1  --mode 2560x1440 --pos 200x1440 --output DP-2-1 --primary --mode 2560x1440_30.00 --pos 0x0 --rotate normal --output DP-2-2 --mode 2560x1440_30.00 --pos 2560x0 --rotate normal
+#exec --no-startup-id xrandr --newmode "2560x1440_30.00"  146.27  2560 2680 2944 3328  1440 1441 1444 1465  -HSync +Vsync
+#exec --no-startup-id xrandr --addmode DP-2-1 "2560x1440_30.00"
+#exec --no-startup-id xrandr --addmode DP-2-2 "2560x1440_30.00"
+##exec --no-startup-id xrandr --output eDP-1 --mode 2560x1440 --pos 800x1200 --rotate normal --output DP-2-1 --primary --mode 1920x1200 --pos 0x0 --rotate normal --output DP-2-2 --mode 1920x1200 --pos 1920x0 --rotate normal
+#exec --no-startup-id xrandr --output eDP-1  --mode 2560x1440 --pos 200x1440 --output DP-2-1 --primary --mode 2560x1440_30.00 --pos 0x0 --rotate normal --output DP-2-2 --mode 2560x1440_30.00 --pos 2560x0 --rotate normal
+exec --no-startup-id xrandr --output DP-2-2 --mode 3840x1600 --primary --output eDP-1 --mode 2560x1440 --pos 3840x160 --output DP-2-1 --off
 
 # quick switch monitor setuip (Win+Ctrl+)
 ## 1: Only Laptop Displayd
@@ -252,6 +253,8 @@ assign [class="X2GoAgent"] 9:remote
 assign [class="Emacs"] 4:hdl
 assign [class="sublime_text"] 5:fw
 assign [class="Sublime_text"] 5:fw
+assign [class="code"] 5:fw
+assign [class="Code"] 5:fw
 assign [class="Gtimelog"] 7:time
 assign [class="Docnav"] 6:doc
 #assign [class="Vivado 2018.1"] 3:inst
@@ -289,7 +292,8 @@ exec --no-startup-id slack
 exec --no-startup-id x2goclient
 exec --no-startup-id thunderbird
 exec --no-startup-id pasystray
-exec --no-startup-id emacs
-exec --no-startup-id emacs
+#exec --no-startup-id emacs
+#exec --no-startup-id emacs
 exec --no-startup-id i3-msg 'workspace 3:instr; exec i3-sensible-terminal'
-exec --no-startup-id subl
+#exec --no-startup-id subl
+exec --no-startup-id code
