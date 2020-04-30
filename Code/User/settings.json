@@ -1,0 +1,113 @@
+{
+    "window.zoomLevel": -1,
+    "editor.renderWhitespace": "all",
+    "breadcrumbs.enabled": true,
+    "editor.rulers": [
+        80, 120
+    ],
+    "C_Cpp.updateChannel": "Insiders",
+    "editor.renderControlCharacters": false,
+	"workbench.editor.enablePreview": false,
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "diffEditor.renderSideBySide": true,
+    "gitlens.codeLens.enabled": false,
+    "svn.enableProposedApi": "none",
+    "files.trimTrailingWhitespace": true,
+    "ceedlingExplorer.projectPath": "/home/tobika/zi/git/hdl/core/firmware/test/project.yml",
+
+    // Add Boost Library includes
+/*    "C_Cpp.default.systemIncludePath": [
+        "${workspaceRoot}",
+        "/home/tobias/tmp/boost_1_69_0/boost/",
+    ],*/
+
+    "psi-header.changes-tracking": {
+        "isActive": true,
+        "autoHeader": "manualSave"
+    },
+    "psi-header.config": {
+        "forceToTop": true,
+    },
+    "psi-header.lang-config": [
+        {
+            "language": "c",
+            "begin": "/**",
+            "end": " */",
+            "prefix": " * ",
+        },
+        {
+            "language": "cpp",
+            "mapTo": "c"
+        },
+        {
+            "language": "vhdl",
+            "begin": "",
+            "end": "",
+            "prefix": "--",
+        },
+        {
+            "language": "*",
+            "begin": "",
+            "end": "",
+            "prefix": "## ",
+        },
+    ],
+    "psi-header.templates": [
+        {
+            "language": "c",
+            "template": [
+                "-----------------------------------------------------------------------------",
+                "@brief  <Understandable title>",
+                "-----------------------------------------------------------------------------",
+                "@copyright Copyright (c) <<year>> Zurich Instruments AG - All Rights Reserved",
+                "Unauthorized copying of this file, via any medium is strictly prohibited",
+                "Proprietary and confidential",
+                "-----------------------------------------------------------------------------",
+                "@details <Functional description>",
+                "-----------------------------------------------------------------------------"
+            ]
+        },
+        {
+            "language": "c++",
+            "template": [
+                "-----------------------------------------------------------------------------",
+                "@brief  <Understandable title>",
+                "-----------------------------------------------------------------------------",
+                "@copyright Copyright (c) <<year>> Zurich Instruments AG - All Rights Reserved",
+                "Unauthorized copying of this file, via any medium is strictly prohibited",
+                "Proprietary and confidential",
+                "-----------------------------------------------------------------------------",
+                "@details <Functional description>",
+                "-----------------------------------------------------------------------------"
+            ]
+        },
+        {
+            "language": "vhdl",
+            "template": [
+                "------------------------------------------------------------------------------",
+                "! @brief <Understandable title>",
+                "------------------------------------------------------------------------------",
+                "! @copyright Copyright (c) <<year>> Zurich Instruments AG - All Rights Reserved",
+                "! Unauthorized copying of this file, via any medium is strictly prohibited",
+                "! Proprietary and confidential",
+                "------------------------------------------------------------------------------",
+                "! @details <Functional description>",
+                "------------------------------------------------------------------------------"
+            ]
+        },
+        {
+            "language": "*",
+            "template": [
+                "-----------------------------------------------------------------------------",
+                "@brief  <Understandable title>",
+                "-----------------------------------------------------------------------------",
+                "@copyright Copyright (c) <<year>> Zurich Instruments AG - All Rights Reserved",
+                "Unauthorized copying of this file, via any medium is strictly prohibited",
+                "Proprietary and confidential",
+                "-----------------------------------------------------------------------------",
+                "@details <Functional description>",
+                "-----------------------------------------------------------------------------"
+            ]
+        },
+    ]
+}
