@@ -184,9 +184,9 @@ bindsym $mod+Control+4 exec --no-startup-id  xrandr --output eDP-1  --off --outp
 bindsym $mod+Control+5 exec --no-startup-id xrandr --output eDP-1 --off --output DP-2-2 --primary --mode 3840x1600 --primary
 ## 6: Home-Office: Laptop + 1x 1080p HDMI in Laptop (no Dockingstation)
 bindsym $mod+Control+6 exec --no-startup-id xrandr --output HDMI-2 --mode 1920x1080 --primary --pos 2560x0 --output eDP-1 --mode 2560x1440 --output DP-2-1 --off
-## 7: Home-Office with DockingStation: Laptop + 1x 1080p DisplayPort in Dockingstation
-bindsym $mod+Control+7 exec --no-startup-id xrandr --output DP-2-2 --mode 1920x1080 --primary --pos 2560x0 --output eDP-1 --mode 2560x1440 --output DP-2-1 --off
-## 8: Home-Office with AOC 34" widescreen: Laptop OFF
+## 7: Home-Office with AOC 34" widescreen (HDMI on Laptop): Laptop OFF
+bindsym $mod+Control+7 exec --no-startup-id xrandr --output HDMI-2 --mode 3440x1440 --primary --pos 2560x0 --output eDP-1 --off --output DP-2-1 --off
+## 8: Home-Office with AOC 34" widescreen (DP2 on Dockinstation): Laptop OFF
 bindsym $mod+Control+8 exec --no-startup-id xrandr --output DP-2-2 --mode 3440x1440 --primary --pos 2560x0 --output eDP-1 --off --output DP-2-1 --off
 
 ## 9: Mirror Laptop to HDMI1 @1080p (presentation)
