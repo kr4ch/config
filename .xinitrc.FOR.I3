@@ -17,6 +17,7 @@ export $(dbus-launch)
 gnome-keyring-daemon -r -d
 
 exec i3
+# Unused:
 #dbus-run-session i3
 #dbus-launch i3
 
