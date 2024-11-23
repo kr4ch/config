@@ -1,0 +1,7 @@
+Xft.dpi: 200
+
+URxvt.transparent: true
+URxvt.shading:20
+urxvt.font: xft:Inconsolata:pixelsize=32
+urxvt.foreground:       #ffffff
+
