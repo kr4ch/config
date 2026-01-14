@@ -185,27 +185,27 @@ bar {
 
 ## Monitor configurations
 # Either mobile (laptop screen only: eDP-1) or desktop (laptop screen + DP-4: $monitor-config
-exec --no-startup-id xrandr --output eDP-1 --mode 1920x1200 --primary --output DP-4 --mode 3840x1600 --position 1920x-600
+exec --no-startup-id xrandr --output eDP-1 --mode 2560x1440 --pos 3440x500 --output DP-2 --mode 3440x1440
 
 
 # quick switch monitor setup (Win+Ctrl+)
 ## 1: Mobile: Only Laptop Display
-bindsym $mod+mod2+Control+KP_1 exec --no-startup-id xrandr --output eDP-1 --primary --mode 1920x1200 --rotate normal --output DP-1 --off --output DP-2 --off --output DP-3 --off --output DP-4 --off --output HDMI-1 --off
-bindsym $mod+Control+1 exec --no-startup-id xrandr --output eDP-1 --primary --mode 1920x1200 --rotate normal --output DP-1 --off --output DP-2 --off --output DP-3 --off --output DP-4 --off --output HDMI-1 --off
+bindsym $mod+mod2+Control+KP_1 exec --no-startup-id xrandr --output eDP-1 --primary --mode 2560x1440 --rotate normal --output DP-1 --off --output DP-2 --off --output DP-3 --off --output DP-4 --off --output HDMI-1 --off
+bindsym $mod+Control+1 exec --no-startup-id xrandr --output eDP-1 --primary --mode 2560x1440 --rotate normal --output DP-1 --off --output DP-2 --off --output DP-3 --off --output DP-4 --off --output HDMI-1 --off
 
 ## 2: Desk: Laptop + 1 external DP UltraWide
-bindsym $mod+mod2+Control+KP_2 exec --no-startup-id xrandr --output eDP-1 --primary --mode 1920x1200 --rotate normal --output DP-1 --off --output DP-2 --off --output DP-3 --off --output DP-4 --mode 3840x1600 --pos 1920x-600 --output HDMI-1 --off
-bindsym $mod+Control+2 exec --no-startup-id xrandr --output eDP-1 --primary --mode 1920x1200 --rotate normal --output DP-1 --off --output DP-2 --off --output DP-3 --off --output DP-4 --mode 3840x1600 --pos 1920x-600 --output HDMI-1 --off
+bindsym $mod+mod2+Control+KP_2 exec --no-startup-id xrandr --output eDP-1 --primary --mode 2560x1440 --rotate normal --output DP-1 --off --output DP-4 --off --output DP-3 --off --output DP-2 --mode 3840x1600 --pos 2560x-500 --output HDMI-1 --off
+bindsym $mod+Control+2 exec --no-startup-id xrandr --output eDP-1 --primary --mode 2560x1440 --rotate normal --output DP-1 --off --output DP-4 --off --output DP-3 --off --output DP-2 --mode 3840x1600 --pos 2560x-500 --output HDMI-1 --off
 ## 3: Desk: Only 1 external DP Ultrawide
-bindsym $mod+mod2+Control+KP_3 exec --no-startup-id xrandr --output eDP-1 --off --output DP-1 --off --output DP-2 --off --output DP-3 --off --output DP-4 --mode 3840x1600 --primary --output HDMI-1 --off
-bindsym $mod+Control+3 exec --no-startup-id xrandr --output eDP-1 --off --output DP-1 --off --output DP-2 --off --output DP-3 --off --output DP-4 --mode 3840x1600 --primary --output HDMI-1 --off
+bindsym $mod+mod2+Control+KP_3 exec --no-startup-id xrandr --output eDP-1 --off --output DP-1 --off --output DP-4 --off --output DP-3 --off --output DP-2 --mode 3840x1600 --primary --output HDMI-1 --off
+bindsym $mod+Control+3 exec --no-startup-id xrandr --output eDP-1 --off --output DP-1 --off --output DP-4 --off --output DP-3 --off --output DP-2 --mode 3840x1600 --primary --output HDMI-1 --off
 
 ## 4: Home: Dockingstation - only external Monitor Ultrawide
-bindsym $mod+mod2+Control+KP_4 exec --no-startup-id xrandr --output DP-3 --mode 3440x1440 --primary --pos 0x0 --output eDP-1 --off --output DP-1 --off --output DP-2 --off --output DP-4 --off --output HDMI-1 --off
-bindsym $mod+Control+4 exec --no-startup-id xrandr --output DP-3 --mode 3440x1440 --primary --pos 0x0 --output eDP-1 --off --output DP-1 --off --output DP-2 --off --output DP-4 --off --output HDMI-1 --off
-## 4: Home: Dockingstation - Laptop + 1 external Monitor Ultrawide
-bindsym $mod+mod2+Control+KP_5 exec --no-startup-id xrandr --output DP-3 --mode 3440x1440 --primary --pos 0x0 --output eDP-1 --mode 1920x1200 --pos 3440x1000 --output DP-1 --off --output DP-2 --off --output DP-4 --off --output HDMI-1 --off
-bindsym $mod+Control+5 exec --no-startup-id xrandr --output DP-3 --mode 3440x1440 --primary --pos 0x0 --output eDP-1 --mode 1920x1200 --pos 3440x1000 --output DP-1 --off --output DP-2 --off --output DP-4 --off --output HDMI-1 --off
+bindsym $mod+mod2+Control+KP_4 exec --no-startup-id xrandr --output DP-2 --mode 3440x1440 --primary --pos 0x0 --output eDP-1 --off --output DP-1 --off --output DP-3 --off --output DP-4 --off --output HDMI-1 --off
+bindsym $mod+Control+4 exec --no-startup-id xrandr --output DP-2 --mode 3440x1440 --primary --pos 0x0 --output eDP-1 --off --output DP-1 --off --output DP-3 --off --output DP-4 --off --output HDMI-1 --off
+## 5: Home: Dockingstation - Laptop + 1 external Monitor Ultrawide
+bindsym $mod+mod2+Control+KP_5 exec --no-startup-id xrandr --output DP-2 --mode 3440x1440 --primary --pos 0x0 --output eDP-1 --mode 2560x1440 --pos 3440x500 --output DP-1 --off --output DP-3 --off --output DP-4 --off --output HDMI-1 --off
+bindsym $mod+Control+5 exec --no-startup-id xrandr --output DP-2 --mode 3440x1440 --primary --pos 0x0 --output eDP-1 --mode 2560x1440 --pos 3440x500 --output DP-1 --off --output DP-3 --off --output DP-4 --off --output HDMI-1 --off
 
 
 ## 9: Mirror Laptop to HDMI1 @1080p (presentation) on the RIGHT USB-C
@@ -259,12 +259,12 @@ bindsym $mod+Control+r exec i3-input -F 'rename workspace to %s' -P 'New name: '
 # Assign workspaces to screens (if screen is unavailable, it will default to the first screen)
 workspace "1:admin" output eDP-1
 
-workspace "2:web" output DP-4
-workspace "3:remote" output DP-4
-workspace "4:code-local" output DP-4
-workspace "5:code" output DP-4
-workspace "6:crunch" output DP-4
-workspace "7:files" output DP-4
+workspace "2:web" output DP-2
+workspace "3:remote" output DP-2
+workspace "4:code-local" output DP-2
+workspace "5:code" output DP-2
+workspace "6:crunch" output DP-2
+workspace "7:files" output DP-2
 
 # Assign classes to workspaces
 assign [class="Chromium"] 2:web
